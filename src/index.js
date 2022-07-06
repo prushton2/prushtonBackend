@@ -23,11 +23,11 @@ app.use( cors({
     credentials: true
 }));
 
-// console.log(crypto.createHmac('sha256', "cccccbddgggi").update("5028841").digest("hex"))
-// console.log(crypto.createHmac('sha256', "cccccbddggig").update("5028841").digest("hex"))
-
-
 app.use("/yubikey", yubikeyRoute)
+
+app.get("/", async(req, res) => {
+    res.send("pong")
+})
 
 app.listen(port, () => {
     console.log(`running on port ${port}`)
